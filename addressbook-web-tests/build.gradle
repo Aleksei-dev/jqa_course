@@ -11,4 +11,6 @@ repositories{
 dependencies {
     implementation 'org.testng:testng:7.1.0'
     implementation 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-5'
+    implementation 'org.slf4j:slf4j-parent:2.0.0-alpha1'
+    compile "org.slf4j:slf4j-simple:1.6.1"
 }
