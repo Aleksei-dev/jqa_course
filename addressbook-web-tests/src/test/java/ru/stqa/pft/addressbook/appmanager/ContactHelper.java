@@ -43,4 +43,16 @@ public class ContactHelper {
   public void initContactCreation() {
     click(By.linkText("add new"));
   }
+
+  public void selectContact() {
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td/input"));
+  }
+
+  public void deleteContact() {
+    click(By.xpath("//input[@value='Delete']"));
+  }
+
+  public void alertYes() {
+    wd.switchTo().alert().accept();
+  }
 }
