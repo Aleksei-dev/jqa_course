@@ -55,4 +55,12 @@ public class ContactHelper {
   public void alertYes() {
     wd.switchTo().alert().accept();
   }
+
+  public void submitContactModification() {
+    click(By.name("update"));
+  }
+
+  public void editContact() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
 }
