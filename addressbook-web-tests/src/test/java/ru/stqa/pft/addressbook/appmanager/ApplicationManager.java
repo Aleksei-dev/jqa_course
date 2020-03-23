@@ -16,7 +16,7 @@ public class ApplicationManager {
   private GroupHelper groupHelper;
 
   public void init() {
-//    System.setProperty("webdriver.chrome.driver","C:\\7y\\Tools\\chromedriver\\chromedriver.exe");
+//    System.setProperty("webdriver.chrome.driver","C:\\java_pft\\Tools\\chromedriver\\chromedriver.exe");
 //    wd = new ChromeDriver();
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
