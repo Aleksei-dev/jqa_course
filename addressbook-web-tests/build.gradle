@@ -14,3 +14,6 @@ dependencies {
     implementation 'org.slf4j:slf4j-parent:2.0.0-alpha1'
     compile "org.slf4j:slf4j-simple:1.6.1"
 }
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
