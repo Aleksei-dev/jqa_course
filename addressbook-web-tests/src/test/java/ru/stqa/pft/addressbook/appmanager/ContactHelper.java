@@ -4,17 +4,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-public class ContactHelper {
+public class ContactHelper extends HelperBase {
   WebDriver wd;
 
   public ContactHelper(WebDriver wd) {
+    super(wd);
     this.wd = wd;
   }
   public void returnHome() {
     click(By.linkText("home page"));
   }
 
-  private void click(By locator) {
+  public void click(By locator) {
     wd.findElement(locator).click();
   }
 
@@ -23,21 +24,11 @@ public class ContactHelper {
   }
 
   public void fillContactForm(ContactData contactData) {
-    click(By.name("firstname"));
-    wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
-    click(By.name("lastname"));
-    wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-    click(By.name("address"));
-    wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
-    click(By.name("mobile"));
-    wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
-    click(By.name("email"));
-    wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(contactData.getMailbox());
+    type(By.name("firstname"), contactData.getFirstname());
+    type(By.name("lastname"), contactData.getLastname());
+    type(By.name("address"), contactData.getAddress());
+    type(By.name("mobile"), contactData.getMobile());
+    type(By.name("email"), contactData.getMailbox());
   }
 
   public void initContactCreation() {
