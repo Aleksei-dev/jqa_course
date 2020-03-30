@@ -19,31 +19,14 @@ public class TestBase {
     app.init();
   }
 
-  public void logout() {
-    wd.findElement(By.linkText("Logout")).click();
-  }
-
-  protected void returnToGroupPage() {
-    wd.findElement(By.linkText("home page")).click();
-  }
-
-  protected void login(String username, String password) {
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys(username);
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys(password);
-    wd.findElement(By.xpath("//input[@value='Login']")).click();
-  }
-
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
     app.stop();
   }
 
-  private boolean isElementPresent(By by) {
+  private boolean isElementPresent(By locator) {
     try {
-      wd.findElement(by);
+      wd.findElement(locator);
       return true;
     } catch (NoSuchElementException e) {
       return false;
