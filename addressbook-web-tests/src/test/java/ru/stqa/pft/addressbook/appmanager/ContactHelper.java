@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.tests.TestBase;
 
 public class ContactHelper extends HelperBase {
   WebDriver wd;
@@ -12,9 +13,6 @@ public class ContactHelper extends HelperBase {
   public ContactHelper(WebDriver wd) {
     super(wd);
     this.wd = wd;
-  }
-  public void returnHome() {
-    click(By.linkText("home page"));
   }
 
   public void submitContactCreation() {
