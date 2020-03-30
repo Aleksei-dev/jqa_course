@@ -33,7 +33,7 @@ public class ApplicationManager {
     }
 //    System.setProperty("webdriver.chrome.driver","C:\\java_pft\\Tools\\chromedriver\\chromedriver.exe");
 //    wd = new ChromeDriver();
-    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
     groupHelper = new GroupHelper(wd);
     contactHelper = new ContactHelper(wd);
