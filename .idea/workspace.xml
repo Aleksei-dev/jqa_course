@@ -55,13 +55,26 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="TestNG.PrimeTests">
-    <configuration name="ContactModificationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.GroupModificationTests">
+    <configuration name="Collections" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.sandbox.Collections" />
+      <module name="sandbox.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.sandbox.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GroupCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.ContactModificationTests&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.GroupCreationTests&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -116,26 +129,6 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'ru.stqa.pft.addressbook.tests'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.*&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="PrimeTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="sandbox.test" />
       <extension name="coverage">
@@ -155,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.PrimeTests" />
-        <item itemvalue="Gradle.Tests in 'ru.stqa.pft.addressbook.tests'" />
-        <item itemvalue="Gradle.ContactModificationTests" />
         <item itemvalue="Gradle.GroupModificationTests" />
         <item itemvalue="Gradle.GroupDeletionTests" />
+        <item itemvalue="Gradle.GroupCreationTests" />
+        <item itemvalue="Application.Collections" />
+        <item itemvalue="TestNG.PrimeTests" />
       </list>
     </recent_temporary>
   </component>
@@ -195,50 +188,58 @@
     </state>
     <state x="463" y="72" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1585113042331" />
     <state x="463" y="72" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1584965700030" />
-    <state width="1490" height="313" key="GridCell.Tab.0.bottom" timestamp="1585885350816">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state width="1490" height="212" key="GridCell.Tab.0.bottom" timestamp="1585905066242">
+      <screen x="1366" y="0" width="1832" height="1080" />
     </state>
     <state width="1322" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1585211640585" />
     <state width="1378" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585303347871" />
     <state width="1286" height="156" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584967571308" />
-    <state width="1490" height="313" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585885350816" />
-    <state width="1490" height="313" key="GridCell.Tab.0.center" timestamp="1585885350816">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state width="1490" height="212" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1832.1080@1366.0.1832.1080" timestamp="1585905066242" />
+    <state width="1490" height="212" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1585903986482" />
+    <state width="1490" height="212" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585901454853" />
+    <state width="1490" height="212" key="GridCell.Tab.0.center" timestamp="1585905066241">
+      <screen x="1366" y="0" width="1832" height="1080" />
     </state>
     <state width="1322" height="178" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1585211640585" />
     <state width="1378" height="178" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585303347871" />
     <state width="1286" height="156" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584967571308" />
-    <state width="1490" height="313" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585885350816" />
-    <state width="1490" height="313" key="GridCell.Tab.0.left" timestamp="1585885350815">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state width="1490" height="212" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1832.1080@1366.0.1832.1080" timestamp="1585905066241" />
+    <state width="1490" height="212" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1585903986482" />
+    <state width="1490" height="212" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585901454853" />
+    <state width="1490" height="212" key="GridCell.Tab.0.left" timestamp="1585905066241">
+      <screen x="1366" y="0" width="1832" height="1080" />
     </state>
     <state width="1322" height="178" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1585211640585" />
     <state width="1378" height="178" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585303347871" />
     <state width="1286" height="156" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584967571308" />
-    <state width="1490" height="313" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585885350815" />
-    <state width="1490" height="313" key="GridCell.Tab.0.right" timestamp="1585885350816">
-      <screen x="1366" y="0" width="1920" height="1080" />
+    <state width="1490" height="212" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1832.1080@1366.0.1832.1080" timestamp="1585905066241" />
+    <state width="1490" height="212" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1585903986481" />
+    <state width="1490" height="212" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585901454853" />
+    <state width="1490" height="212" key="GridCell.Tab.0.right" timestamp="1585905066242">
+      <screen x="1366" y="0" width="1832" height="1080" />
     </state>
     <state width="1322" height="178" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1585211640585" />
     <state width="1378" height="178" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585303347871" />
     <state width="1286" height="156" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584967571308" />
-    <state width="1490" height="313" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585885350816" />
-    <state width="1490" height="313" key="GridCell.Tab.1.bottom" timestamp="1585885352520">
+    <state width="1490" height="212" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1832.1080@1366.0.1832.1080" timestamp="1585905066242" />
+    <state width="1490" height="212" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1585903986482" />
+    <state width="1490" height="212" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585901454853" />
+    <state width="1490" height="313" key="GridCell.Tab.1.bottom" timestamp="1585900629995">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1490" height="313" key="GridCell.Tab.1.bottom/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585885352520" />
-    <state width="1490" height="313" key="GridCell.Tab.1.center" timestamp="1585885352520">
+    <state width="1490" height="313" key="GridCell.Tab.1.bottom/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585900629995" />
+    <state width="1490" height="313" key="GridCell.Tab.1.center" timestamp="1585900629994">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1490" height="313" key="GridCell.Tab.1.center/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585885352520" />
-    <state width="1490" height="313" key="GridCell.Tab.1.left" timestamp="1585885352519">
+    <state width="1490" height="313" key="GridCell.Tab.1.center/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585900629994" />
+    <state width="1490" height="313" key="GridCell.Tab.1.left" timestamp="1585900629994">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1490" height="313" key="GridCell.Tab.1.left/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585885352519" />
-    <state width="1490" height="313" key="GridCell.Tab.1.right" timestamp="1585885352520">
+    <state width="1490" height="313" key="GridCell.Tab.1.left/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585900629994" />
+    <state width="1490" height="313" key="GridCell.Tab.1.right" timestamp="1585900629995">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
-    <state width="1490" height="313" key="GridCell.Tab.1.right/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585885352520" />
+    <state width="1490" height="313" key="GridCell.Tab.1.right/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1585900629995" />
     <state x="1625" y="0" key="SettingsEditor" timestamp="1585293040712">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
