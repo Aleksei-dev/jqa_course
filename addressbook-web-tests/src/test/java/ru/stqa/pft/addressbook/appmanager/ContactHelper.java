@@ -2,9 +2,16 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
   WebDriver wd;
@@ -41,7 +48,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContact() {
-    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td/input"));
+    click(By.name("selected[]"));
   }
 
   public void deleteContact() {
@@ -69,5 +76,9 @@ public class ContactHelper extends HelperBase {
 
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td/input"));
+  }
+
+  public int getContactCount() {
+    return wd.findElements(By.name("selected[]")).size();
   }
 }
