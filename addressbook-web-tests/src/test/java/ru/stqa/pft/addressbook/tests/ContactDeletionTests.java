@@ -16,14 +16,12 @@ public class ContactDeletionTests extends TestBase {
     app.getContactHelper().selectContact(before.size() - 1);
     app.getContactHelper().deleteContact();
     app.getContactHelper().alertYes();
-    if(!app.getContactHelper().checkIfContactDeleted()){
-      app.getNavigationHelper().returnHome();
-    }
     app.getNavigationHelper().returnHome();
-//    Thread.sleep(6000); // sometimes test fails if sleep is ex. 1000
+    Thread.sleep(6000); // sometimes test fails if sleep is ex. 1000
     List<ContactData> after = app.getContactHelper().getContactList();
     Assert.assertEquals(after.size(), before.size() - 1);
 
     before.remove(before.size() - 1);
+    Assert.assertEquals(before, after);
   }
 }
