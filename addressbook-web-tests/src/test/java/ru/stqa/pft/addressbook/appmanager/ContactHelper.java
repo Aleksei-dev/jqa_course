@@ -93,4 +93,8 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
+  public boolean checkIfContactDeleted() {
+    return isElementPresent(By.cssSelector("div.msgbox"));
+  }
 }
