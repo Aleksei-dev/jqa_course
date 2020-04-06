@@ -29,8 +29,22 @@ public class ContactData {
     this.group = group;
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return Objects.equals(firstname, that.firstname) &&
+            Objects.equals(lastname, that.lastname);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(firstname, lastname);
+  }
+
   public ContactData(String firstname, String lastname, String address, String mobile, String mailbox, String group) {
-    this.id = 0;
+    this.id = Integer.MAX_VALUE;
     this.firstname = firstname;
     this.lastname = lastname;
     this.address = address;
@@ -72,18 +86,4 @@ public class ContactData {
             '}';
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ContactData that = (ContactData) o;
-    return Objects.equals(id, that.id) &&
-            Objects.equals(firstname, that.firstname) &&
-            Objects.equals(lastname, that.lastname);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, firstname, lastname);
-  }
 }
