@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ContactCreationTests extends TestBase{
 
-  @Test (enabled = false)
+  @Test
   public void testContactCreation() throws Exception {
     List<ContactData> before = app.getContactHelper().getContactList();
     ContactData contact = new ContactData("Aleksey", "Kovaltsuk", "Tallinn", "+37250000005", "mail@test.com", "test1");
@@ -23,6 +23,5 @@ public class ContactCreationTests extends TestBase{
     before.sort(byId);
     after.sort(byId);
     Assert.assertEquals(before, after);
-    app.logout();
   }
 }

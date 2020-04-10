@@ -11,7 +11,7 @@ public class GroupCreationTests extends TestBase {
 
   private Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
 
-  @Test
+  @Test (enabled = false)
   public void testGroupCreation() throws Exception {
     app.getNavigationHelper().gotoGroupPage();
     List<GroupData> before = app.getGroupHelper().getGroupList();

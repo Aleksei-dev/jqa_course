@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ContactModificationTests extends TestBase {
 
-  @Test (enabled = false)
+  @Test
   public void testContactModification() {
     if(! app.getContactHelper().isThereAContact()){
       app.getContactHelper().createContact(new ContactData("Aleksei", "Kovaltsuk", "Tallinn", "+37250000005", "mail@test.com", "test1"), true);
@@ -29,6 +29,5 @@ public class ContactModificationTests extends TestBase {
     before.sort(byId);
     after.sort(byId);
     Assert.assertEquals(before, after);
-    app.logout();
   }
 }
