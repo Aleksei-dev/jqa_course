@@ -37,6 +37,13 @@ public class ContactHelper extends HelperBase {
   }
 
   public void returnHome() {
+    click(By.linkText("home"));
+  }
+
+  public void returnToHomePage() {
+    if(isElementPresent(By.id("maintable"))){
+      return;
+    }
     click(By.linkText("home page"));
   }
 
@@ -69,7 +76,14 @@ public class ContactHelper extends HelperBase {
     initContactCreation();
     fillContactForm(contact, true);
     submitContactCreation();
-    returnHome();
+    returnToHomePage();
+  }
+
+  public void modifyContact(int index, ContactData contact) {
+    editContact(index);
+    fillContactForm(contact, false);
+    submitContactModification();
+    returnToHomePage();
   }
 
   public boolean isThereAContact() {
