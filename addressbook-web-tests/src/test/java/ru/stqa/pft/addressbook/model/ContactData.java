@@ -3,30 +3,51 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-  private int id;
-  private final String firstname;
-  private final String lastname;
-  private final String address;
-  private final String mobile;
-  private final String mailbox;
+  private int id = Integer.MAX_VALUE;
+  private String firstname;
+  private String lastname;
+  private String address;
+  private String mobile;
+  private String mailbox;
   private String group;
+
+  public ContactData withFirstname(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+  public ContactData withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactData withMobile(String mobile) {
+    this.mobile = mobile;
+    return this;
+  }
+
+  public ContactData withMailbox(String mailbox) {
+    this.mailbox = mailbox;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
+  }
+
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
 
   public int getId() {
     return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public ContactData(int id, String firstname, String lastname, String address, String mobile, String mailbox, String group) {
-    this.id = id;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.address = address;
-    this.mobile = mobile;
-    this.mailbox = mailbox;
-    this.group = group;
   }
 
   @Override
@@ -41,16 +62,6 @@ public class ContactData {
   @Override
   public int hashCode() {
     return Objects.hash(firstname, lastname);
-  }
-
-  public ContactData(String firstname, String lastname, String address, String mobile, String mailbox, String group) {
-    this.id = Integer.MAX_VALUE;
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.address = address;
-    this.mobile = mobile;
-    this.mailbox = mailbox;
-    this.group = group;
   }
 
   public String getFirstname() {
