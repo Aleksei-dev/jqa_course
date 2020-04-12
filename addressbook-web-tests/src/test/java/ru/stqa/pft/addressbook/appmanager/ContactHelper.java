@@ -102,6 +102,11 @@ public class ContactHelper extends HelperBase {
     returnHome();
   }
 
+  public String dropdownItem(String groupInDropdown){
+    wd.findElement(By.name("new_group")).getText().contains("test");
+    return groupInDropdown;
+  }
+
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td/input"));
   }
