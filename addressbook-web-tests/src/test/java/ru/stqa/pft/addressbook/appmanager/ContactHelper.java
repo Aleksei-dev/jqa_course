@@ -30,7 +30,8 @@ public class ContactHelper extends HelperBase {
     type(By.name("email"), contactData.getMailbox());
 
     if(creation){
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+//      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      new Select(wd.findElement(By.name("new_group"))).selectByIndex(1);
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -99,10 +100,6 @@ public class ContactHelper extends HelperBase {
     deleteContact();
     deletionMsgBoxChecker();
     returnHome();
-  }
-
-  public void dropdownItem(int indexOfItem){
-    wd.findElements(By.name("new_group")).get(indexOfItem).click();
   }
 
   public boolean isThereAContact() {
