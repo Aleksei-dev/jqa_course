@@ -6,10 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
   WebDriver wd;
@@ -102,9 +101,8 @@ public class ContactHelper extends HelperBase {
     returnHome();
   }
 
-  public String dropdownItem(String groupInDropdown){
-    wd.findElement(By.name("new_group")).getText().contains("test");
-    return groupInDropdown;
+  public void dropdownItem(int indexOfItem){
+    wd.findElements(By.name("new_group")).get(indexOfItem).click();
   }
 
   public boolean isThereAContact() {
@@ -115,8 +113,8 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public Set<ContactData> all() {
-    Set<ContactData> contacts = new HashSet<ContactData>();
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
     for (WebElement element : elements){
         List<WebElement> cells = element.findElements(By.tagName("td"));

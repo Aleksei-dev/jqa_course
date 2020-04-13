@@ -10,6 +10,7 @@ public class ContactData {
   private String mobile;
   private String mailbox;
   private String group;
+  private int groupIndex;
 
   public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
@@ -38,6 +39,11 @@ public class ContactData {
 
   public ContactData withGroup(String group) {
     this.group = group;
+    return this;
+  }
+
+  public ContactData withGroupIndex(int groupIndex) {
+    this.groupIndex = groupIndex;
     return this;
   }
 
