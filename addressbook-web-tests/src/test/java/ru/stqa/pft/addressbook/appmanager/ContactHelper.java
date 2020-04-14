@@ -31,7 +31,7 @@ public class ContactHelper extends HelperBase {
 
     if(creation){
 //      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-      new Select(wd.findElement(By.name("new_group"))).selectByIndex(1);
+      new Select(wd.findElement(By.name("new_group"))).selectByIndex(0);
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -85,6 +85,7 @@ public class ContactHelper extends HelperBase {
     initContactCreation();
     fillContactForm(contact, true);
     submitContactCreation();
+    contactCache = null;
     returnToHomePage();
   }
 
@@ -92,6 +93,7 @@ public class ContactHelper extends HelperBase {
     editContactById(contact.getId());
     fillContactForm(contact, false);
     submitContactModification();
+    contactCache = null;
     returnToHomePage();
   }
 
@@ -99,6 +101,7 @@ public class ContactHelper extends HelperBase {
     selectContactById(contact.getId());
     deleteContact();
     deletionMsgBoxChecker();
+    contactCache = null;
     returnHome();
   }
 
@@ -110,8 +113,14 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
+  private Contacts contactCache = null;
+
   public Contacts all() {
-    Contacts contacts = new Contacts();
+    if (contactCache != null){
+      return new Contacts(contactCache);
+    }
+
+    contactCache = new Contacts();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
     for (WebElement element : elements){
         List<WebElement> cells = element.findElements(By.tagName("td"));
@@ -121,10 +130,10 @@ public class ContactHelper extends HelperBase {
         String address = cells.get(3).getText();
         String mobile = cells.get(5).getText();
         String mailbox = cells.get(4).getText();
-        contacts.add(new ContactData()
+      contactCache.add(new ContactData()
                 .withId(id).withFirstname(firstname).withLastname(lastname)
                 .withAddress(address).withMobile(mobile).withMailbox(mailbox));
     }
-    return contacts;
+    return new Contacts(contactCache);
   }
 }

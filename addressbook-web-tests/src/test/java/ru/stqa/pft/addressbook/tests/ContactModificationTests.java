@@ -16,7 +16,7 @@ public class ContactModificationTests extends TestBase {
     if(app.contact().all().size() == 0){
       app.contact().create(new ContactData()
               .withFirstname("Abc").withLastname("Def").withAddress("Moon 2")
-              .withMobile("+372888885").withMailbox("mymail@mail.com").withGroup("[none]"), true);
+              .withMobile("+372888885").withMailbox("mymail@mail.com"), true);
     }
   }
 
