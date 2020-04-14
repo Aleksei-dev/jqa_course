@@ -26,10 +26,12 @@ public class ContactHelper extends HelperBase {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
-    type(By.name("mobile"), contactData.getMobile());
+    type(By.name("home"), contactData.getHomePhone());
+    type(By.name("mobile"), contactData.getMobilePhone());
+    type(By.name("work"), contactData.getWorkPhone());
     type(By.name("email"), contactData.getMailbox());
 
-    if(creation){
+    if (creation) {
 //      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
       new Select(wd.findElement(By.name("new_group"))).selectByIndex(0);
     } else {
@@ -42,7 +44,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void returnToHomePage() {
-    if(isElementPresent(By.id("maintable"))){
+    if (isElementPresent(By.id("maintable"))) {
       return;
     }
     click(By.linkText("home page"));
@@ -112,23 +114,24 @@ public class ContactHelper extends HelperBase {
   private Contacts contactCache = null;
 
   public Contacts all() {
-    if (contactCache != null){
+    if (contactCache != null) {
       return new Contacts(contactCache);
     }
 
     contactCache = new Contacts();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
-    for (WebElement element : elements){
-        List<WebElement> cells = element.findElements(By.tagName("td"));
-        int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-        String lastname = cells.get(1).getText();
-        String firstname = cells.get(2).getText();
-        String address = cells.get(3).getText();
-        String mobile = cells.get(5).getText();
-        String mailbox = cells.get(4).getText();
+    for (WebElement element : elements) {
+      List<WebElement> cells = element.findElements(By.tagName("td"));
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+      String lastname = cells.get(1).getText();
+      String firstname = cells.get(2).getText();
+      String address = cells.get(3).getText();
+      String mailbox = cells.get(4).getText();
+      String[] phones = cells.get(5).getText().split("\n");
       contactCache.add(new ContactData()
-                .withId(id).withFirstname(firstname).withLastname(lastname)
-                .withAddress(address).withMobilePhone(mobile).withMailbox(mailbox));
+              .withId(id).withFirstname(firstname).withLastname(lastname)
+              .withAddress(address).withHomePhone(phones[0]).withMobilePhone(phones[1])
+              .withWorkPhone(phones[2]).withMailbox(mailbox));
     }
     return new Contacts(contactCache);
   }

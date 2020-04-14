@@ -89,7 +89,7 @@ public class ContactData {
     return address;
   }
 
-  public String getMobile() {
+  public String getMobilePhone() {
     return mobile;
   }
 
@@ -99,6 +99,14 @@ public class ContactData {
 
   public String getGroup() {
     return group;
+  }
+
+  public String getHomePhone() {
+    return home;
+  }
+
+  public String getWorkPhone() {
+    return work;
   }
 
   @Override
