@@ -10,6 +10,45 @@ public class ContactData {
   private String home;
   private String mobile;
   private String work;
+  private String email;
+  private String email2;
+  private String email3;
+  private String allEmails;
+
+  public String getAllEmails() {
+    return allEmails;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+
+  public ContactData withFirstEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public ContactData withSecondEmail(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+
+  public ContactData withThirdEmail(String email3) {
+    this.email3 = email3;
+    return this;
+  }
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  private String allPhones;
   private String mailbox;
   private String group;
 
@@ -108,6 +147,19 @@ public class ContactData {
   public String getWorkPhone() {
     return work;
   }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public String getEmail2() {
+    return email2;
+  }
+
+  public String getEmail3() {
+    return email3;
+  }
+
 
   @Override
   public String toString() {
