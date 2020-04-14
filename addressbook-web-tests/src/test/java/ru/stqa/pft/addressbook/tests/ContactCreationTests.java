@@ -27,9 +27,22 @@ public class ContactCreationTests extends TestBase{
             .withFirstname("Abc").withLastname("Def").withAddress("Moon 2")
             .withMobile("+372000005").withMailbox("mymail@mail.com");
     app.contact().create(contact, true);
+    assertThat(app.contact().getContactCount(), equalTo(before.size() + 1));
     Contacts after = app.contact().all();
-    assertThat(after.size(), equalTo(before.size() + 1));
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+  }
+
+  @Test
+  public void testBadContactCreation() {
+    app.goTo().homePage();
+    Contacts before = app.contact().all();
+    ContactData contact = new ContactData()
+            .withFirstname("Abc'").withLastname("Def").withAddress("Moon 2")
+            .withMobile("+372000005").withMailbox("mymail@mail.com");
+    app.contact().create(contact, true);
+    assertThat(app.contact().getContactCount(), equalTo(before.size()));
+    Contacts after = app.contact().all();
+    assertThat(after, equalTo(before));
   }
 }

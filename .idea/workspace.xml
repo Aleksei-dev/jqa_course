@@ -55,13 +55,32 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Gradle.ContactDeletionTests">
+  <component name="RunManager" selected="Gradle.ContactModificationTests">
     <configuration name="ContactCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.ContactCreationTests&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ContactCreationTests.testBadContactCreation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.ContactCreationTests.testBadContactCreation&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -113,31 +132,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GroupDeletionTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GroupModificationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.GroupDeletionTests&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Tests in 'ru.stqa.pft.addressbook.tests'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook-web-tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.*&quot;" />
+        <option name="scriptParameters" value="--tests &quot;ru.stqa.pft.addressbook.tests.GroupModificationTests&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -153,11 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ContactDeletionTests" />
-        <item itemvalue="Gradle.GroupDeletionTests" />
-        <item itemvalue="Gradle.Tests in 'ru.stqa.pft.addressbook.tests'" />
         <item itemvalue="Gradle.ContactModificationTests" />
+        <item itemvalue="Gradle.ContactDeletionTests" />
         <item itemvalue="Gradle.ContactCreationTests" />
+        <item itemvalue="Gradle.ContactCreationTests.testBadContactCreation" />
+        <item itemvalue="Gradle.GroupModificationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +198,7 @@
     </state>
     <state x="463" y="72" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1585113042331" />
     <state x="463" y="72" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1584965700030" />
-    <state width="1651" height="262" key="GridCell.Tab.0.bottom" timestamp="1586834772210">
+    <state width="1651" height="262" key="GridCell.Tab.0.bottom" timestamp="1586835963255">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state width="1322" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1585211640585" />
@@ -206,9 +206,9 @@
     <state width="1286" height="156" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584967571308" />
     <state width="1490" height="212" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1832.1080@1366.0.1832.1080" timestamp="1585915243913" />
     <state width="1490" height="212" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1585903986482" />
-    <state width="1651" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1586834772210" />
+    <state width="1651" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1586835963255" />
     <state width="1322" height="262" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1586762767691" />
-    <state width="1651" height="262" key="GridCell.Tab.0.center" timestamp="1586834772210">
+    <state width="1651" height="262" key="GridCell.Tab.0.center" timestamp="1586835963254">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state width="1322" height="178" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1585211640585" />
@@ -216,9 +216,9 @@
     <state width="1286" height="156" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584967571308" />
     <state width="1490" height="212" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1832.1080@1366.0.1832.1080" timestamp="1585915243913" />
     <state width="1490" height="212" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1585903986482" />
-    <state width="1651" height="262" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1586834772210" />
+    <state width="1651" height="262" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1586835963254" />
     <state width="1322" height="262" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1586762767691" />
-    <state width="1651" height="262" key="GridCell.Tab.0.left" timestamp="1586834772210">
+    <state width="1651" height="262" key="GridCell.Tab.0.left" timestamp="1586835963254">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state width="1322" height="178" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1585211640585" />
@@ -226,9 +226,9 @@
     <state width="1286" height="156" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584967571308" />
     <state width="1490" height="212" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1832.1080@1366.0.1832.1080" timestamp="1585915243913" />
     <state width="1490" height="212" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1585903986481" />
-    <state width="1651" height="262" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1586834772210" />
+    <state width="1651" height="262" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1586835963254" />
     <state width="1322" height="262" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1586762767691" />
-    <state width="1651" height="262" key="GridCell.Tab.0.right" timestamp="1586834772210">
+    <state width="1651" height="262" key="GridCell.Tab.0.right" timestamp="1586835963255">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state width="1322" height="178" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1080@0.0.1366.728" timestamp="1585211640585" />
@@ -236,7 +236,7 @@
     <state width="1286" height="156" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584967571308" />
     <state width="1490" height="212" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1832.1080@1366.0.1832.1080" timestamp="1585915243913" />
     <state width="1490" height="212" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1585903986482" />
-    <state width="1651" height="262" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1586834772210" />
+    <state width="1651" height="262" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1920.1080@1366.0.1920.1080" timestamp="1586835963255" />
     <state width="1322" height="262" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1586762767691" />
     <state width="1322" height="179" key="GridCell.Tab.1.bottom" timestamp="1586762293640">
       <screen x="0" y="0" width="1366" height="738" />
