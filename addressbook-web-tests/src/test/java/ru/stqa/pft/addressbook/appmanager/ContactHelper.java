@@ -77,10 +77,6 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
   }
 
-  public void editContactById(int id) {
-    wd.findElement(By.cssSelector("a[href='" + "edit.php?id=" + id + "']")).click();
-  }
-
   public void create(ContactData contact, boolean b) {
     initContactCreation();
     fillContactForm(contact, true);
@@ -90,7 +86,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void modify(ContactData contact) {
-    editContactById(contact.getId());
+    initContactModificationById(contact.getId());
     fillContactForm(contact, false);
     submitContactModification();
     contactCache = null;
@@ -132,8 +128,26 @@ public class ContactHelper extends HelperBase {
         String mailbox = cells.get(4).getText();
       contactCache.add(new ContactData()
                 .withId(id).withFirstname(firstname).withLastname(lastname)
-                .withAddress(address).withMobile(mobile).withMailbox(mailbox));
+                .withAddress(address).withMobilePhone(mobile).withMailbox(mailbox));
     }
     return new Contacts(contactCache);
+  }
+
+  public ContactData infoFromEditForm(ContactData contact) {
+    initContactModificationById(contact.getId());
+    String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+    String work = wd.findElement(By.name("work")).getAttribute("value");
+    wd.navigate().back();
+    return new ContactData()
+            .withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
+            .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+  }
+
+  public void initContactModificationById(int id) {
+    wd.findElement(By.cssSelector("a[href='" + "edit.php?id=" + id + "']")).click();
+//    wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 }

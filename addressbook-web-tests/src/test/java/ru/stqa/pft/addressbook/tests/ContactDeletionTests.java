@@ -20,7 +20,7 @@ public class ContactDeletionTests extends TestBase {
   public void ensurePreconditions(){
     if(app.contact().all().size() == 0){
       app.contact().create(new ContactData()
-              .withFirstname("Abc").withLastname("Def").withAddress("Moon 2").withMobile("+372000009")
+              .withFirstname("Abc").withLastname("Def").withAddress("Moon 2").withMobilePhone("+372000009")
               .withMailbox("a@mail.ru").withGroup("[none]"), true);
     }
   }
