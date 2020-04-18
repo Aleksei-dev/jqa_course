@@ -27,10 +27,9 @@ public class ContactCreationTests extends TestBase{
     Contacts before = app.contact().all();
     File photo = new File("src/test/resources/Jellyfish.jpg");
     ContactData contact = new ContactData()
-            .withFirstname("Abc").withLastname("Def").withAddress("Moon 2")
-            .withMobilePhone("+372000005").withWorkPhone("+4323232").withHomePhone("9838389")
-            .withFirstEmail("a@mail.ru").withSecondEmail("bc@d.com").withThirdEmail("efg@alpe.it")
-            .withPhoto(photo);
+            .withFirstname("Abc")
+            .withLastname("Def")
+            .withAddress("Moon 2");
     app.contact().create(contact, true);
     assertThat(app.contact().getContactCount(), equalTo(before.size() + 1));
     Contacts after = app.contact().all();
@@ -44,9 +43,16 @@ public class ContactCreationTests extends TestBase{
     Contacts before = app.contact().all();
     File photo = new File("src/test/resources/Jellyfish.jpg");
     ContactData contact = new ContactData()
-            .withFirstname("Abc'").withLastname("Def").withAddress("Moon 2")
-            .withMobilePhone("+372000005").withWorkPhone("+4323232").withHomePhone("9838389")
-            .withFirstEmail("a@mail.ru").withSecondEmail("bc@d.com").withThirdEmail("efg@alpe.it").withPhoto(photo);
+            .withFirstname("Abc'")
+            .withLastname("Def")
+            .withAddress("Moon 2")
+            .withMobilePhone("+372000005")
+            .withWorkPhone("+4323232")
+            .withHomePhone("9838389")
+            .withFirstEmail("a@mail.ru")
+            .withSecondEmail("bc@d.com")
+            .withThirdEmail("efg@alpe.it")
+            .withPhoto(photo);
     app.contact().create(contact, true);
     assertThat(app.contact().getContactCount(), equalTo(before.size()));
     Contacts after = app.contact().all();

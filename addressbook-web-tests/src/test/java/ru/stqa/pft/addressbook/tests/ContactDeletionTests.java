@@ -20,9 +20,9 @@ public class ContactDeletionTests extends TestBase {
   public void ensurePreconditions(){
     if(app.contact().all().size() == 0){
       app.contact().create(new ContactData()
-              .withFirstname("Abc").withLastname("Def").withAddress("Moon 2")
-              .withMobilePhone("+372000009").withWorkPhone("+4323232").withHomePhone("9838389")
-              .withFirstEmail("a@mail.ru").withSecondEmail("bc@d.com").withThirdEmail("efg@alpe.it")
+              .withFirstname("Abc")
+              .withLastname("Def")
+              .withAddress("Moon 2")
               .withGroup("[none]"), true);
     }
   }
