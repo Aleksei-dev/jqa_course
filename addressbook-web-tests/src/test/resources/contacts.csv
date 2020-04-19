@@ -1,3 +1,20 @@
-Alec;Beduin;Moon 4
-Alec;Beduin;Moon 4
-Alec;Beduin;Moon 4
+<list>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>2147483647</id>
+    <firstname>Alec
+1</firstname>
+    <lastname>Beduin
+1</lastname>
+    <address>Moon 4
+1</address>
+  </ru.stqa.pft.addressbook.model.ContactData>
+  <ru.stqa.pft.addressbook.model.ContactData>
+    <id>2147483647</id>
+    <firstname>Alec
+1</firstname>
+    <lastname>Beduin
+1</lastname>
+    <address>Moon 4
+1</address>
+  </ru.stqa.pft.addressbook.model.ContactData>
+</list>
