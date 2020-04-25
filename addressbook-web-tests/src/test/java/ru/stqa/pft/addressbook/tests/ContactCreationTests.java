@@ -36,20 +36,20 @@ public class ContactCreationTests extends TestBase {
   }
 
   @BeforeMethod
-  public void ensurePreconditions() {
-    app.goTo().groupPage();
-    if (app.group().all().size() == 0) {
-      app.group().create((new GroupData().withName("test2").withHeader("test3").withFooter("test4")));
+  public void ensurePreconditions(){
+    if (app.db().groups().size() == 0){
+      app.goTo().groupPage();
+      app.group().create((new GroupData().withName("test1").withHeader("test2").withFooter("test3")));
     }
   }
 
   @Test (dataProvider = "validContacts")
   public void testContactCreation(ContactData contact) {
     app.goTo().homePage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     app.contact().create(contact, true);
     assertThat(app.contact().getContactCount(), equalTo(before.size() + 1));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }
@@ -57,7 +57,7 @@ public class ContactCreationTests extends TestBase {
   @Test(enabled = false)
   public void testBadContactCreation() {
     app.goTo().homePage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     File photo = new File("src/test/resources/Jellyfish.jpg");
     ContactData contact = new ContactData()
             .withFirstname("Abc'")
@@ -72,7 +72,7 @@ public class ContactCreationTests extends TestBase {
             .withPhoto(photo);
     app.contact().create(contact, true);
     assertThat(app.contact().getContactCount(), equalTo(before.size()));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(before));
   }
 }
