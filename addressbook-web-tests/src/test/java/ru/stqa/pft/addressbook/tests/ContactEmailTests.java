@@ -19,8 +19,7 @@ public class ContactEmailTests extends TestBase {
               .withFirstname("Abc").withLastname("Def").withAddress("Moon 2")
               .withMobilePhone("+372000009").withHomePhone("656453425")
               .withWorkPhone("+67576523")
-              .withFirstEmail("a@mail.ru").withSecondEmail("bc@d.com").withThirdEmail("efg@alpe.it")
-              .withGroup("[none]"), true);
+              .withFirstEmail("a@mail.ru").withSecondEmail("bc@d.com").withThirdEmail("efg@alpe.it"), true);
     }
   }
 

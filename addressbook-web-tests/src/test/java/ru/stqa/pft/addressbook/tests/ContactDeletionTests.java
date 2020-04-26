@@ -23,7 +23,6 @@ public class ContactDeletionTests extends TestBase {
               .withFirstname("Abc")
               .withLastname("Def")
               .withAddress("Moon 2")
-              .withGroup("[none]")
               .withHomePhone("9838389")
               .withFirstEmail("a@mail.ru"), true);
     }

@@ -20,7 +20,7 @@ public class ContactPhoneTests extends TestBase {
       app.contact().create(new ContactData()
               .withFirstname("Abc").withLastname("Def").withAddress("Moon 2")
               .withMobilePhone("+372000009").withHomePhone("656453425")
-              .withWorkPhone("+67576523").withMailbox("a@mail.ru").withGroup("[none]"), true);
+              .withWorkPhone("+67576523").withMailbox("a@mail.ru"), true);
     }
   }
 
