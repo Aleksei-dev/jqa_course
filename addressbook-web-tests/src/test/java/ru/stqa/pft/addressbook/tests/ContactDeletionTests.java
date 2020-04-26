@@ -23,7 +23,9 @@ public class ContactDeletionTests extends TestBase {
               .withFirstname("Abc")
               .withLastname("Def")
               .withAddress("Moon 2")
-              .withGroup("[none]"), true);
+              .withGroup("[none]")
+              .withHomePhone("9838389")
+              .withFirstEmail("a@mail.ru"), true);
     }
   }
 
@@ -36,5 +38,6 @@ public class ContactDeletionTests extends TestBase {
     assertEquals(app.contact().getContactCount(), before.size() - 1);
     Contacts after = app.db().contacts();
     assertThat(after, equalTo(before.without(deletedContact)));
+    verifyContactListInUI();
   }
 }
