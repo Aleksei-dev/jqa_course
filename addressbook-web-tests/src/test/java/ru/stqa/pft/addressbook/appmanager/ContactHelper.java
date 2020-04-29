@@ -35,8 +35,11 @@ public class ContactHelper extends HelperBase {
 //    type(By.name("email3"), contactData.getEmail3());
 
     if (creation) {
-//      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-      new Select(wd.findElement(By.name("new_group"))).selectByIndex(0);
+      if (contactData.getGroups().size() > 0){
+        Assert.assertTrue(contactData.getGroups().size() == 1);
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+//      new Select(wd.findElement(By.name("new_group"))).selectByIndex(0);
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -74,6 +77,10 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.cssSelector("div.msgbox"));
   }
 
+  public void addedToGroupMsgBoxChecker() {
+    wd.findElement(By.cssSelector("div.msgbox"));
+  }
+
   public void submitContactModification() {
     click(By.name("update"));
   }
@@ -106,8 +113,18 @@ public class ContactHelper extends HelperBase {
     returnHome();
   }
 
+  public int goToGroupAddedPage(int id) {
+    addedToGroupMsgBoxChecker();
+    wd.findElement(By.cssSelector("a[href='" + "./?group=" + id + "']")).click();
+    return id;
+  }
+
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td/input"));
+  }
+
+  public boolean isThereAContactAddedToGroup() {
+    return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[2]"));
   }
 
   public int getContactCount() {
@@ -161,5 +178,19 @@ public class ContactHelper extends HelperBase {
   public void initContactModificationById(int id) {
     wd.findElement(By.cssSelector("a[href='" + "edit.php?id=" + id + "']")).click();
 //    wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+  }
+
+  public void addContactToGroup() {
+    int id = Integer.parseInt(wd.findElement(By.name("to_group")).getAttribute("value"));
+    new Select(wd.findElement(By.name("to_group"))).selectByValue(String.valueOf(id));
+    wd.findElement(By.name("add")).click();
+  }
+
+  public void selectGroupFromList(String groupChoice) {
+    new Select(wd.findElement(By.xpath("//select[@name=\"group\"]"))).selectByVisibleText(groupChoice);
+  }
+
+  public void removeContactFromGroup() {
+    wd.findElement(By.name("remove")).click();
   }
 }

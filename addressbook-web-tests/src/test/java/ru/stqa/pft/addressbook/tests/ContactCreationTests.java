@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class ContactCreationTests extends TestBase {
     }
   }
 
-  @Test (dataProvider = "validContacts")
+  @Test (dataProvider = "validContacts", enabled = false)
   public void testContactCreation(ContactData contact) {
     app.goTo().homePage();
     Contacts before = app.db().contacts();
@@ -75,5 +76,26 @@ public class ContactCreationTests extends TestBase {
     assertThat(app.contact().getContactCount(), equalTo(before.size()));
     Contacts after = app.db().contacts();
     assertThat(after, equalTo(before));
+  }
+
+  @Test
+  public void testFixContactCreation() {
+    Groups groups = app.db().groups();
+    app.goTo().homePage();
+    Contacts before = app.db().contacts();
+    File photo = new File("src/test/resources/Jellyfish.jpg");
+    ContactData contact = new ContactData()
+            .withFirstname("Abc")
+            .withLastname("Def")
+            .withAddress("Moon 2")
+            .withHomePhone("9838389")
+            .withFirstEmail("a@mail.ru")
+            .withPhoto(photo)
+            .inGroup(groups.iterator().next());
+    app.contact().create(contact, true);
+    assertThat(app.contact().getContactCount(), equalTo(before.size() + 1));
+    Contacts after = app.db().contacts();
+    assertThat(after, equalTo(
+            before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }
 }

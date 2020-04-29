@@ -227,4 +227,9 @@ public class ContactData {
             ", home='" + home + '\'' +
             '}';
   }
+
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
 }
