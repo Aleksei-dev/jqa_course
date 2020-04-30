@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 public class AddContactToGroupTests extends TestBase {
 
@@ -26,8 +27,13 @@ public class AddContactToGroupTests extends TestBase {
   @Test
   public void  testAddContactToGroup(){
     app.goTo().homePage();
-    app.contact().selectContactById(app.db().contacts().iterator().next().getId());
-    app.contact().addContactToGroup();
-    app.contact().goToGroupAddedPage(app.db().groups().iterator().next().getId());
+    ContactData contact = app.db().contacts().iterator().next();
+    int groupCount = app.db().groups().size();
+    int contactGroup = contact.getGroups().size();
+    if(contactGroup < groupCount){
+      app.contact().selectContactById(app.db().contacts().iterator().next().getId());
+      app.contact().addContactToGroup();
+      app.contact().goToGroupAddedPage(app.db().groups().iterator().next().getId());
+    }
   }
 }

@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 public class DeleteContactFromGroupTests extends TestBase {
 
@@ -20,15 +21,17 @@ public class DeleteContactFromGroupTests extends TestBase {
     }
     if (app.db().groups().size() == 0){
       app.goTo().groupPage();
-      app.group().create((new GroupData().withName("test0").withHeader("test2").withFooter("test3")));
+      app.group().create((new GroupData().withName("test1").withHeader("test2").withFooter("test3")));
     }
   }
 
   @Test
   public void  testDeleteContactFromGroup(){
     app.goTo().homePage();
+    ContactData contact = app.db().contacts().iterator().next();
+    Groups contactGroup = contact.getGroups();
     app.contact().selectGroupFromList("test 0");
-    if(app. == 0){
+    if(contactGroup.size() == 0){
       app.contact().selectGroupFromList("[all]");
       app.contact().selectContactById(app.db().contacts().iterator().next().getId());
       app.contact().addContactToGroup();
