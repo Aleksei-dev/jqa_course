@@ -28,6 +28,7 @@ public class AddContactToGroupTests extends TestBase {
   public void  testAddContactToGroup(){
     app.goTo().homePage();
     ContactData contact = app.db().contacts().iterator().next();
+    int groupId = app.db().groups().iterator().next().getId();
     int groupCount = app.db().groups().size();
     int contactGroup = contact.getGroups().size();
     if(contactGroup < groupCount){
