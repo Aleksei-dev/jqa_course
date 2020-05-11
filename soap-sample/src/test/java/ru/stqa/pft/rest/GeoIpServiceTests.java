@@ -1,7 +1,6 @@
-package ru.stqa.pft.soap;
+package ru.stqa.pft.rest;
 
 import com.lavasoft.GeoIPService;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;

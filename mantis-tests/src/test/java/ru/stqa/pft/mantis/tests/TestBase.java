@@ -43,6 +43,7 @@ public class TestBase {
     if(issueStatus.equals("resolved")){
       return false;
     }
+    System.out.println("Issue is still opened!");
     return true;
   }
 }
