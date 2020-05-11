@@ -36,7 +36,7 @@ public class SoapTests extends TestBase{
 
   @Test
   public void testIfNotSkipped() throws RemoteException, ServiceException, MalformedURLException {
-    skipIfNotFixed(2);
+    skipIfNotFixed(1);
     System.out.println("To next test...");
   }
 }
