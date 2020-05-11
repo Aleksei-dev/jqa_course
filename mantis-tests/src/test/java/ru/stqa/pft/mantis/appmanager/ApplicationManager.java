@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
+import sun.rmi.runtime.Log;
 
 import javax.transaction.xa.XAResource;
 import java.io.File;
@@ -19,6 +20,9 @@ public class ApplicationManager {
 
   private String browser;
   private RegistrationHelper registrationHelper;
+  private NavigationHelper navigationHelper;
+  private UsersHelper usersHelper;
+  private LoginHelper loginHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
   private JamesHelper jamesHelper;
@@ -52,6 +56,27 @@ public class ApplicationManager {
       registrationHelper = new RegistrationHelper(this);
     }
     return registrationHelper;
+  }
+
+  public NavigationHelper navigationHelper() {
+    if(navigationHelper == null){
+      navigationHelper = new NavigationHelper(this);
+    }
+    return navigationHelper;
+  }
+
+  public LoginHelper login(){
+    if(loginHelper == null){
+      loginHelper = new LoginHelper(this);
+    }
+    return loginHelper;
+  }
+
+  public UsersHelper usersHelper(){
+    if(usersHelper == null){
+      usersHelper = new UsersHelper(this);
+    }
+    return usersHelper;
   }
 
   public FtpHelper ftp(){
@@ -89,4 +114,5 @@ public class ApplicationManager {
     }
     return jamesHelper;
   }
+
 }
