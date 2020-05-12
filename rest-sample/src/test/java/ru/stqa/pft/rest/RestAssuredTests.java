@@ -20,7 +20,7 @@ public class RestAssuredTests extends TestBase{
   }
 
   @Test
-  public void testIfNotResolved(){
+  public void testIfNotResolved() throws IOException {
     skipIfNotFixed(1);
     System.out.println("Continue to next step..");
   }
