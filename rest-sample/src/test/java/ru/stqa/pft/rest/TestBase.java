@@ -23,8 +23,8 @@ public class TestBase {
 
   private boolean isIssueOpen(int issueId) throws IOException {
     Issue issue = getIssue().iterator().next();
-    String issueState = issue.getState();
-    if(issueState.equals("2")){
+    String issueState = issue.getState_name();
+    if(issueState.equals("Resolved")){
       return false;
     }
     System.out.println("Issue is still opened!");

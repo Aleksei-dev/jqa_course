@@ -9,6 +9,17 @@ public class Issue {
   private String description;
   private String state;
 
+  public String getState_name() {
+    return state_name;
+  }
+
+  public Issue withState_name(String state_name) {
+    this.state_name = state_name;
+    return this;
+  }
+
+  private String state_name;
+
   public String getState() {
     return state;
   }
