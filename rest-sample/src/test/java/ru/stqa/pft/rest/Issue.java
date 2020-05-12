@@ -8,6 +8,7 @@ public class Issue {
   private String subject;
   private String description;
   private String state;
+  private String state_name;
 
   public String getState_name() {
     return state_name;
@@ -17,8 +18,6 @@ public class Issue {
     this.state_name = state_name;
     return this;
   }
-
-  private String state_name;
 
   public String getState() {
     return state;

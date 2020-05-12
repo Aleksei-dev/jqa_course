@@ -22,6 +22,6 @@ public class RestTests extends TestBase{
   @Test
   public void testIfNotResolved() throws IOException {
     skipIfNotFixed(1);
-    System.out.println("Continue to next step..");
+    System.out.println("Bug is in Resolved state. Continue to the next step..");
   }
 }
