@@ -11,4 +11,9 @@ public class UsersHelper extends HelperBase{
     wd.findElement(By.cssSelector("a[href='" + "manage_user_edit_page.php?user_id=" + id + "']")).click();
     return id;
   }
+
+  public void resetPasswordBtn() {
+    click(By.xpath("//input[@value='Reset Password']"));
+  }
+
 }
