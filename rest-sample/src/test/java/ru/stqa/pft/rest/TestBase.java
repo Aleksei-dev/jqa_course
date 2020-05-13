@@ -22,7 +22,7 @@ public class TestBase {
   }
 
   private boolean isIssueOpen(int issueId) throws IOException {
-    Issue issue = getIssue().iterator().next();
+    Issue issue = getIssue(issueId).iterator().next();
     String issueState = issue.getState_name();
     if(issueState.equals("Resolved")){
       return false;
@@ -39,12 +39,12 @@ public class TestBase {
     return new Gson().fromJson(issues, new TypeToken<Set<Issue>>() {}.getType());
   }
 
-  protected Set<Issue> getIssue() throws IOException {
-    String json = getExecutor().execute(Request.Get("https://bugify.stqa.ru/api/issues/1.json"))
+  protected Set<Issue> getIssue(int issueId) throws IOException {
+    String json = getExecutor().execute(Request.Get(String.format("https://bugify.stqa.ru/api/issues/%s.json", issueId)))
             .returnContent().asString();
     JsonElement parsed = JsonParser.parseString(json);
-    JsonElement issue = parsed.getAsJsonObject().get("issues");
-    Set<Issue> setOfIssues = new Gson().fromJson(issue, new TypeToken<Set<Issue>>() {
+    JsonElement issues = parsed.getAsJsonObject().get("issues");
+    Set<Issue> setOfIssues = new Gson().fromJson(issues, new TypeToken<Set<Issue>>() {
     }.getType());
     return setOfIssues;
   }
