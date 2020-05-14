@@ -2,8 +2,12 @@ apply plugin: 'java'
 apply plugin: 'application'
 mainClassName = "ru.stqa.pft.sandbox.MyFirstProgram"
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 test {
     useTestNG()
+    systemProperty "file.encoding", "utf-8"
 }
 
 repositories{
@@ -16,3 +20,5 @@ dependencies {
 /*tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }*/
+
+compileJava.options.encoding = 'UTF-8'
