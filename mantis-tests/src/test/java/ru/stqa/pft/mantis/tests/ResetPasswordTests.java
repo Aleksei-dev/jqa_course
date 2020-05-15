@@ -50,10 +50,7 @@ public class ResetPasswordTests extends TestBase{
 
   public UserData getUser(){
     Users users = app.db().users();
-    if(users.iterator().next().getName().equals("administrator")){
-      return users.iterator().next();
-    }
-    return users.iterator().next();
+    return users.stream().filter((u) -> !u.getName().contains("user1")).iterator().next();
   }
 
   @AfterMethod(alwaysRun = true)
