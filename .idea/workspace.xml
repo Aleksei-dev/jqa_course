@@ -74,18 +74,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mantis-tests/src/test/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/addressbook-web-tests/src/test/resources" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\java_pft\jqa_course\mantis-tests\src\test\resources" />
-      <recent name="C:\java_pft\jqa_course\mantis-tests\src\test\java\ru\stqa\pft\mantis\model" />
-      <recent name="C:\java_pft\jqa_course\soap-sample" />
-      <recent name="C:\java_pft\jqa_course\addressbook-web-tests\src\test\resources" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.stqa.pft.rest" />
+      <recent name="ru.stqa.pft.mantis.appmanager" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ru.stqa.pft.mantis.appmanager" />
@@ -93,9 +91,11 @@
       <recent name="ru.stqa.pft.mantis.model" />
       <recent name="ru.stqa.pft.rest" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ru.stqa.pft.rest" />
-      <recent name="ru.stqa.pft.mantis.appmanager" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\java_pft\jqa_course\addressbook-web-tests\src\test\resources" />
+      <recent name="C:\java_pft\jqa_course\mantis-tests\src\test\resources" />
+      <recent name="C:\java_pft\jqa_course\mantis-tests\src\test\java\ru\stqa\pft\mantis\model" />
+      <recent name="C:\java_pft\jqa_course\soap-sample" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.ResetPasswordTests">
