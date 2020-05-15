@@ -47,3 +47,6 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.4.14.Final'
     compile "org.slf4j:slf4j-simple:1.6.1"
 }
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
