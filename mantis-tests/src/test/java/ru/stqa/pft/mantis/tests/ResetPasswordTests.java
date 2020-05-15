@@ -48,11 +48,6 @@ public class ResetPasswordTests extends TestBase{
     return regex.getText(mailMessage.text);
   }
 
-  public UserData getUser(){
-    Users users = app.db().users();
-    return users.stream().filter((u) -> !u.getName().contains("user1")).iterator().next();
-  }
-
   @AfterMethod(alwaysRun = true)
   public void stopMailServer(){
     app.mail().stop();

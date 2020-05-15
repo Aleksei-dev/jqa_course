@@ -6,6 +6,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import ru.stqa.pft.mantis.appmanager.ApplicationManager;
 import ru.stqa.pft.mantis.model.Issue;
+import ru.stqa.pft.mantis.model.UserData;
+import ru.stqa.pft.mantis.model.Users;
 
 import javax.xml.rpc.ServiceException;
 import java.io.File;
@@ -45,5 +47,10 @@ public class TestBase {
     }
     System.out.println("Issue is still opened!");
     return true;
+  }
+
+  public UserData getUser(){
+    Users users = app.db().users();
+    return users.stream().filter((u) -> !u.getName().contains("administrator")).iterator().next();
   }
 }
