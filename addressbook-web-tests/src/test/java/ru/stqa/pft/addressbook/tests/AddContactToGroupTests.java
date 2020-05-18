@@ -28,7 +28,7 @@ public class AddContactToGroupTests extends TestBase {
       app.goTo().groupPage();
       app.group().create((new GroupData().withName("test1").withHeader("test2").withFooter("test3")));
     }
-    if(app.db().contacts().iterator().next().getGroups().size() > 0){
+    if (app.db().contacts().iterator().next().getGroups().size() > 0) {
       app.contact().create(new ContactData()
               .withFirstname("Abc")
               .withLastname("Def")
@@ -46,17 +46,15 @@ public class AddContactToGroupTests extends TestBase {
     ContactData contactToAdd = returnContactToAddToGroup();
     Groups before = contact.getGroups();
     int id = contactToAdd.getId();
-    int groupsSize = app.db().groups().size();
-    if (contact.getGroups().size() < groupsSize) {
-      app.contact().selectContactById(id);
-      app.contact().addContactToGroup();
-      app.goTo().goToAddedGroupPage();
-    }
+    app.contact().selectContactById(id);
+    app.contact().addContactToGroup();
+    app.goTo().goToAddedGroupPage();
     ContactData contactAfterAddedToGroup = app.db().contacts().iterator().next().inGroup(group).withId(id);
     Groups after = contactAfterAddedToGroup.getGroups();
     assertThat(after, equalTo(before.withAdded(group)));
   }
-  private ContactData returnContactToAddToGroup(){
+
+  private ContactData returnContactToAddToGroup() {
     GroupData group = app.db().groups().iterator().next();
     return app.db().contacts().stream().filter((c) -> !c.getGroups().contains(group)).findFirst().get();
   }
