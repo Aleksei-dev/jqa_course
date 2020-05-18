@@ -1,11 +1,17 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class DeleteContactFromGroupTests extends TestBase {
 
@@ -29,17 +35,23 @@ public class DeleteContactFromGroupTests extends TestBase {
   public void  testDeleteContactFromGroup(){
     app.goTo().homePage();
     ContactData contact = app.db().contacts().iterator().next();
+    GroupData group = app.db().groups().iterator().next();
     Groups contactGroup = contact.getGroups();
-    app.contact().selectGroupFromList("test2");
+    int id = app.db().contacts().iterator().next().getId();
+    Groups before = contact.getGroups();
+    app.contact().selectGroupFromList("test1");
     if(contactGroup.size() == 0){
       app.contact().selectGroupFromList("[all]");
-      app.contact().selectContactById(app.db().contacts().iterator().next().getId());
+      app.contact().selectContactById(id);
       app.contact().addContactToGroup();
       app.contact().goToGroupAddedPage(app.db().groups().iterator().next().getId());
-      app.contact().selectGroupFromList("test2");
+      app.contact().selectGroupFromList("test1");
     }
-    app.contact().selectContactById(app.db().contacts().iterator().next().getId());
+    app.contact().selectContactById(id);
     app.contact().removeContactFromGroup();
     app.contact().goToGroupAddedPage(app.db().groups().iterator().next().getId());
+    ContactData contactAfterGroupDeleted = app.db().contacts().iterator().next().withId(id);
+    Groups after = contactAfterGroupDeleted.getGroups();
+    assertThat(after, equalTo(before.without(group)));
   }
 }
