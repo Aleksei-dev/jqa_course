@@ -39,13 +39,13 @@ public class DeleteContactFromGroupTests extends TestBase {
     Groups contactGroup = contact.getGroups();
     int id = app.db().contacts().iterator().next().getId();
     Groups before = contact.getGroups();
-    app.contact().selectGroupFromList("test1");
+    app.contact().selectGroupFromList(group.getName());
     if(contactGroup.size() == 0){
       app.contact().selectGroupFromList("[all]");
       app.contact().selectContactById(id);
       app.contact().addContactToGroup();
       app.contact().goToGroupAddedPage(app.db().groups().iterator().next().getId());
-      app.contact().selectGroupFromList("test1");
+      app.contact().selectGroupFromList(group.getName());
     }
     app.contact().selectContactById(id);
     app.contact().removeContactFromGroup();
