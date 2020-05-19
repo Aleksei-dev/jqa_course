@@ -1,7 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -28,7 +26,7 @@ public class AddContactToGroupTests extends TestBase {
       app.goTo().groupPage();
       app.group().create((new GroupData().withName("test1").withHeader("test2").withFooter("test3")));
     }
-    if (app.db().contacts().iterator().next().getGroups().size() > 0) {
+    if (contactToAdd().getGroups().size() > 0) {
       app.contact().create(new ContactData()
               .withFirstname("Abc")
               .withLastname("Def")
@@ -41,20 +39,19 @@ public class AddContactToGroupTests extends TestBase {
   @Test
   public void testAddContactToGroup() {
     app.goTo().homePage();
-    ContactData contact = app.db().contacts().iterator().next();
     GroupData group = app.db().groups().iterator().next();
-    ContactData contactToAdd = returnContactToAddToGroup();
+    ContactData contact = contactToAdd();
     Groups before = contact.getGroups();
-    int id = contactToAdd.getId();
+    int id = contact.getId();
     app.contact().selectContactById(id);
     app.contact().addContactToGroup();
     app.goTo().goToAddedGroupPage();
-    ContactData contactAfterAddedToGroup = app.db().contacts().iterator().next().inGroup(group).withId(id);
-    Groups after = contactAfterAddedToGroup.getGroups();
+    ContactData contactInGroup = contact.inGroup(group).withId(id);
+    Groups after = contactInGroup.getGroups();
     assertThat(after, equalTo(before.withAdded(group)));
   }
 
-  private ContactData returnContactToAddToGroup() {
+  private ContactData contactToAdd() {
     GroupData group = app.db().groups().iterator().next();
     return app.db().contacts().stream().filter((c) -> !c.getGroups().contains(group)).findFirst().get();
   }
