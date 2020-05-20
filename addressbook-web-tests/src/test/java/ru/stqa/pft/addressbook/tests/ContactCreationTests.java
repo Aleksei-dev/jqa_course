@@ -78,7 +78,7 @@ public class ContactCreationTests extends TestBase {
     assertThat(after, equalTo(before));
   }
 
-  @Test
+  @Test (enabled = false)
   public void testFixContactCreation() {
     Groups groups = app.db().groups();
     app.goTo().homePage();

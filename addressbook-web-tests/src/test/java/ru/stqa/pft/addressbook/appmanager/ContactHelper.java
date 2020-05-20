@@ -89,12 +89,13 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
   }
 
-  public void create(ContactData contact, boolean b) {
+  public ContactData create(ContactData contact, boolean b) {
     initContactCreation();
     fillContactForm(contact, true);
     submitContactCreation();
     contactCache = null;
     returnToHomePage();
+    return contact;
   }
 
   public void modify(ContactData contact) {
