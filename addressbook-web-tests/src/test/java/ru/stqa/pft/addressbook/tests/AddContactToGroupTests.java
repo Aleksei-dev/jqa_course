@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
@@ -26,33 +27,47 @@ public class AddContactToGroupTests extends TestBase {
       app.goTo().groupPage();
       app.group().create((new GroupData().withName("test1").withHeader("test2").withFooter("test3")));
     }
-    if (contactToAdd().getGroups().size() > 0) {
+    ContactData contact = getContactToAddInGroup();
+    if (contact == null){
       app.contact().create(new ContactData()
-              .withFirstname("Abc")
-              .withLastname("Def")
-              .withAddress("Moon 2")
-              .withHomePhone("9838389")
-              .withFirstEmail("a@mail.ru"), true);
+              .withFirstname("test").withLastname("test1"), true);
     }
   }
 
   @Test
   public void testAddContactToGroup() {
     app.goTo().homePage();
-    GroupData group = app.db().groups().iterator().next();
-    ContactData contact = contactToAdd();
+    ContactData contact = getContactToAddInGroup();
+    Groups groupsForContact = groupsForContact(contact);
+    GroupData group = groupsForContact.iterator().next();
     Groups before = contact.getGroups();
     int id = contact.getId();
     app.contact().selectContactById(id);
     app.contact().addContactToGroup();
     app.goTo().goToAddedGroupPage();
-    ContactData contactInGroup = contact.inGroup(group).withId(id);
-    Groups after = contactInGroup.getGroups();
+    contact = contact.inGroup(group).withId(id);
+    Groups after = contact.getGroups();
     assertThat(after, equalTo(before.withAdded(group)));
   }
 
-  private ContactData contactToAdd() {
-    GroupData group = app.db().groups().iterator().next();
-    return app.db().contacts().stream().filter((c) -> !c.getGroups().contains(group)).findFirst().get();
+  public Groups groupsForContact(ContactData contact){
+    Groups groupForContact = new Groups();
+    for (GroupData g : app.db().groups()){
+      if (!contact.getGroups().contains(groupForContact)){
+        groupForContact.add(g);
+      }
+    }
+    return groupForContact;
+  }
+
+  public ContactData getContactToAddInGroup(){
+    Contacts contacts = app.db().contacts();
+    Groups groups = app.db().groups();
+    for (ContactData c : contacts){
+      if (c.getGroups().size() < groups.size()){
+        return c;
+      }
+    }
+    return null;
   }
 }
