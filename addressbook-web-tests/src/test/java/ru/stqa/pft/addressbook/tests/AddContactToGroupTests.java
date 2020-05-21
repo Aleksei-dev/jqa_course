@@ -45,7 +45,10 @@ public class AddContactToGroupTests extends TestBase {
     app.contact().selectContactById(id);
     app.contact().addContactToGroup();
     app.goTo().goToAddedGroupPage();
-    contact = contact.inGroup(group).withId(id);
+
+    ContactData recentlyTestedContact = contact;
+    contact = app.db().contacts().stream()
+            .filter((c) -> c.getId() == recentlyTestedContact.getId()).findFirst().get();
     Groups after = contact.getGroups();
     assertThat(after, equalTo(before.withAdded(group)));
   }
